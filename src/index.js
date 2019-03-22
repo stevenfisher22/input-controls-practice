@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 class Example extends React.Component {
-    state = { text: ''};
+    state = { 
+        text: 'try typing something'
+    };
 
     handleChange = (event) => {
+        let text = event.target.value;
+        text = text.replace(/[0-9]/g, '')
         this.setState({
-            text: event.target.value
+            text
         });
     };
 
@@ -22,4 +26,8 @@ class Example extends React.Component {
     }
 }
 
-ReactDOM.render(<Example />, document.getElementById('root'))
+const EasyInput = () => (
+    <input type="text"/>
+)
+
+ReactDOM.render(<EasyInput />, document.getElementById('root'))
