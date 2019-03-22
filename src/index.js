@@ -26,8 +26,29 @@ class Example extends React.Component {
     }
 }
 
-const EasyInput = () => (
-    <input type="text"/>
-)
+class RefInput extends React.Component {
+    showValue = () => {
+        alert(`Input contains: ${this.input.value}`);
+    }
 
-ReactDOM.render(<EasyInput />, document.getElementById('root'))
+    render() {
+        return (
+            <div>
+                <input 
+                    type="text"
+                    ref={input => this.input = input}
+                />
+                <button onClick={this.showValue}>
+                    Alert the Value!
+                </button>
+            </div>
+        );
+    }
+}
+
+// Easy Input - Uncontrolled Input
+// const EasyInput = () => (
+//     <input type="text"/>
+// )
+
+ReactDOM.render(<RefInput />, document.getElementById('root'))
